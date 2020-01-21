@@ -48,7 +48,24 @@ function difference(numbers) {
 }
 
 function max(number) {
-  // write your code here
+  if (!number || number.length === 0) {
+   return undefined;
+ }
+ if (number.length % 2 === 0 || number.length < 3 ){
+   return undefined;
+ }
+ if (number.some(isNaN)){
+   return undefined;
+ }
+ else{
+   var first_element = number[0];
+   var middle_element = number[Math.floor(number.length/2)];
+   var last_element = number[number.length-1];
+   var array = [];
+   var largest = Number(Math.max.apply(null, array));
+   array.push(first_element, middle_element, last_element);
+   return  Number(Math.max.apply(null, array));
+ }
 }
 
 function middle(values) {
