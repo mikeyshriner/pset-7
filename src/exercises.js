@@ -15,11 +15,25 @@ function commonEnd(a, b) {
     }
   }
 
-  // write your code here
 }
 
 function endsMeet(values, n) {
-  // write your code here
+  var returnMe = [];
+ if (!values || values.length < n || !Number.isInteger(n) || n < 0){
+     return returnMe;
+ } else if (n === 0) {
+   return returnMe;
+ } else {
+
+   for (var i = 0; i < n; i++) {
+     returnMe.push(values[i]);
+   }
+   for (var i = 0; i < n; i++) {
+     returnMe.push(values[((values.length - n) + i)])
+   }
+ }
+
+ return returnMe;
 }
 
 function difference(numbers) {
