@@ -103,7 +103,19 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
-  // write your code here
+  if (values != undefined && values.length >= 1 && x != undefined) {
+    for(let j = 0; j < values.length; j++) {
+      if (values[j] === x || values[j - 1] === x || values[j + 1] === x) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+  else {
+    return false;
+  }
 }
 
 function consecutive(numbers) {
