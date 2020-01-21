@@ -119,7 +119,34 @@ function everywhere(values, x) {
 }
 
 function consecutive(numbers) {
-  // write your code here
+  if (!numbers || numbers.length < 3) {
+     return false;
+   }
+   let numeral = true;
+   for (i = 0; i <= numbers.length - 1; i++) {
+     if (isNaN(numbers[i])) {
+       numeral = false;
+     }
+   }
+   if (numeral === false) {
+     return false;
+   }
+   let status = false;
+   for (h = 0; h <= numbers.length - 1; h++) {
+     let one = numbers[h] % 2;
+     let two = numbers[h + 1] % 2;
+     let three = numbers[h + 2] % 2;
+     if (one === 0 && two === 0 && three === 0) {
+       return true;
+     } else if (one > 0 && two > 0 && three >0) {
+       return true;
+     } else {
+       status = false;
+     }
+   }
+   if (status === false) {
+     return false;
+   }
 }
 
 function balance(numbers) {
