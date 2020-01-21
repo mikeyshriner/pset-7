@@ -150,8 +150,41 @@ function consecutive(numbers) {
 }
 
 function balance(numbers) {
-  // write your code here
-  console.log("test");
+  var count = 0;
+   var size = 0;
+   var sum1 = 0;
+   var sum2 = 0;
+
+   if (!numbers || numbers.length < 2) {
+     return false;
+   }
+   for (i = 0; i < numbers.length; i++) {
+     if (!(Number.isInteger(numbers[i]))) {
+       return false;
+     }
+   }
+   for (z = 0; z < numbers.length; z++) {
+     if (numbers[z] == undefined) {
+       return true;
+     }
+   }
+   for (x = numbers.length; x > -1; x--) {
+     sum1 = 0
+     sum2 = 0
+     for(y = numbers.length - x; y > -1; y--) {
+       sum1 = sum1 + numbers[y]
+     }
+     for(a = numbers.length - 1; a > numbers.length - x; a--) {
+       sum2 = sum2 + numbers[a]
+     }
+     if (sum2 == sum1) {
+       count = 1
+       return true;
+     }
+   }
+   if (count == 0) {
+     return false;
+   }
 }
 
 function clumps(values) {
