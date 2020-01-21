@@ -37,7 +37,14 @@ function endsMeet(values, n) {
 }
 
 function difference(numbers) {
-  // write your code here
+  if (!numbers || numbers.length < 1 || !numbers.every(isNumber)) {
+   return undefined;
+ } else {
+   const min = Math.min(...numbers);
+   const max = Math.max(...numbers);
+
+   return max - min;
+ }
 }
 
 function max(number) {
