@@ -113,18 +113,32 @@ function increasing(numbers) {
 }
 
 function everywhere(values, x) {
-  if (values != undefined && values.length >= 1 && x != undefined) {
-    for(let j = 0; j < values.length; j++) {
-      if (values[j] === x || values[j - 1] === x || values[j + 1] === x) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
-  }
-  else {
+  if (values == undefined || x === undefined) {
     return false;
+  } else if (values.length < 1) {
+    return false;
+  } else if (!values.includes(x)) {
+    return false;
+  } else {
+
+      for (let y = values.indexOf(x); y < values.length; y++) {
+        if (values[y] === values[y + 1] && values[y + 1] !== undefined) {
+          return true;
+          break;
+        } else if (x === 0) {
+          return false;
+          break;
+        } else if (values[y] === values[y + 2] && values[y + 2] !== undefined && values[y + 1] !== values[y]) {
+          return true;
+          break;
+        } else if (values[y] === values[y + 3] && values[y + 3] !== undefined && (values[y + 1] && values[y + 2]) !== values[y + 3]) {
+          return true;
+          break;
+        } else {
+          return false;
+          break;
+        }
+      }
   }
 }
 
